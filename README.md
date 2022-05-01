@@ -1,90 +1,70 @@
-<!--- This file was automatically generated. See docs.ts and *_template.md files for the source. -->
-# Obsidian Linter
-![Build](https://github.com/platers/obsidian-linter/actions/workflows/main.yml/badge.svg)
-![Downloads](https://img.shields.io/github/downloads/platers/obsidian-linter/total)
+# vscode-obsidian-linter README
 
-This Obsidian plugin formats and styles your notes with a focus on configurability and extensibility.
-Rules can be toggled and configured in the settings.
+This is the README for your extension "vscode-obsidian-linter". After writing up a brief description, we recommend including the following sections.
 
-## Usage
+## Features
 
-To lint the current file, run `Lint the current file` (`Ctrl+Alt+L` by default).
-To lint the all files, run `Lint all files in the vault`.
+Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
 
-When `Lint on save` is toggled on, the plugin will lint the current file on manual save (when you press `Ctrl+S`).
+For example if there is an image subfolder under your extension project workspace:
 
-![Demo](images/demo.gif)
+\!\[feature X\]\(images/feature-x.png\)
 
-### Disable rules
+> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
-```markdown
----
-disabled rules: [ capitalize-headings ]
----
-```
+## Requirements
 
-Add `disabled rules: [ ... ]` to the YAML frontmatter of a file to disable those rules when linting that file. 
+If you have any requirements or dependencies, add a section describing those and how to install and configure them.
 
-Add `disabled rules: [ all ]` to the YAML frontmatter of a file to disable all rules.
+## Extension Settings
 
-## Rules
+Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
 
-Documentation for all rules can be found in the [rules docs](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md). The docs are updated before the plugin is released, so may not be completely accurate.
+For example:
 
+This extension contributes the following settings:
 
-### YAML rules
+* `myExtension.enable`: enable/disable this extension
+* `myExtension.thing`: set to `blah` to do something
 
-- [format-tags-in-yaml](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#format-tags-in-yaml)
-- [insert-yaml-attributes](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#insert-yaml-attributes)
-- [yaml-timestamp](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#yaml-timestamp)
-- [yaml-title](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#yaml-title)
+## Known Issues
 
-### Heading rules
+Calling out known issues can help limit users opening duplicate issues against your extension.
 
-- [header-increment](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#header-increment)
-- [file-name-heading](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#file-name-heading)
-- [capitalize-headings](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#capitalize-headings)
+## Release Notes
 
-### Footnote rules
+Users appreciate release notes as you update your extension.
 
-- [move-footnotes-to-the-bottom](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#move-footnotes-to-the-bottom)
-- [re-index-footnotes](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#re-index-footnotes)
-- [footnote-after-punctuation](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#footnote-after-punctuation)
+### 1.0.0
 
-### Content rules
+Initial release of ...
 
-- [remove-multiple-spaces](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#remove-multiple-spaces)
-- [remove-hyphenated-line-breaks](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#remove-hyphenated-line-breaks)
-- [remove-consecutive-list-markers](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#remove-consecutive-list-markers)
-- [remove-empty-list-markers](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#remove-empty-list-markers)
-- [convert-bullet-list-markers](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#convert-bullet-list-markers)
-- [proper-ellipsis](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#proper-ellipsis)
+### 1.0.1
 
-### Spacing rules
+Fixed issue #.
 
-- [trailing-spaces](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#trailing-spaces)
-- [heading-blank-lines](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#heading-blank-lines)
-- [paragraph-blank-lines](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#paragraph-blank-lines)
-- [space-after-list-markers](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#space-after-list-markers)
-- [compact-yaml](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#compact-yaml)
-- [consecutive-blank-lines](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#consecutive-blank-lines)
-- [convert-spaces-to-tabs](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#convert-spaces-to-tabs)
-- [line-break-at-document-end](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#line-break-at-document-end)
-- [space-between-chinese-and-english-or-numbers](https://github.com/platers/obsidian-linter/blob/master/docs/rules.md#space-between-chinese-and-english-or-numbers)
+### 1.1.0
 
+Added features X, Y, and Z.
 
-## Development Instructions
+-----------------------------------------------------------------------------------------------------------
+## Following extension guidelines
 
-Pull requests are welcome, especially for new rules.
+Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
 
-1. Clone the repository
-2. Run `npm ci` to install dependencies
-3. Add a new rule in `rules.ts`.
-    1. Insert a new rule in the corresponding rule type(spacing, headings, etc)
-    2. Follow the format of the existing rules
-    3. Add tests for edge cases in `test.ts`
-    4. You should probably use some helper functions from `utils.ts`, such as `ignoreCodeBlocksAndYAML`.
-4. Run `npm run compile` to build, generate documentation, and test the plugin. 
-5. Run `npm run lint` to lint the plugin.
+* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
 
-Make sure to use Node 15.x or higher.
+## Working with Markdown
+
+**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+
+* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
+* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
+* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
+
+### For more information
+
+* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
+* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+
+**Enjoy!**
